@@ -1,0 +1,6 @@
+*.ipynb linguist-documentation
+*.xlsx linguist-documentation 
+*.txt linguist-documentation
+*.png linguist-documentation 
+PRA_EventTree_Analysis/No_Obstruction/Py_Scripts/* linguist-vendored
+PRA_EventTree_Analysis/Stochastic_Obstruction_Height/Py_Scripts/* linguist-vendored

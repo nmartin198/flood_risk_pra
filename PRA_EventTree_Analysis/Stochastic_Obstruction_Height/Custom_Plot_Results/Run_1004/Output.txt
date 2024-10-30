@@ -1,0 +1,12 @@
+Fluid v. 2.7 
+
+Current time =            3602.0000 [s]
+Flag = 0	 Iter. =   26	 Resid.=    9.159E-13
+Current time =            7202.0000 [s]
+Flag = 0	 Iter. =   26	 Resid.=    4.306E-13
+Current time =           10802.0000 [s]
+Flag = 0	 Iter. =   26	 Resid.=    6.204E-13
+Current time =           14402.0000 [s]
+Flag = 0	 Iter. =   26	 Resid.=    4.405E-13
+Current time =           18002.0000 [s]
+Flag = 0	 Iter. =   26	 Resid.=    5.322E-13

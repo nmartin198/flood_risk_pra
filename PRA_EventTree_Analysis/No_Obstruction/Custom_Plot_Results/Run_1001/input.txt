@@ -1,0 +1,236 @@
+# input.txt
+# This file provides input PARAMETERS and sources for MOD_FreeSurf2D.
+# This file should have '#' at the start of every comment line.
+#      otherwise all values should have whitespace before the
+#      variable value and whitespace after the variable value.
+#      This means that every variable should be followed by a 
+#      space before the end line character.
+#
+#
+# #######################################################
+# Simulation layout parameters.
+#
+# Start time for simulation in hours.
+STARTTIME = 0.0 
+#
+# End time in simulation in hours.
+ENDTIME = 6.0 
+#
+# Simulation name.
+SIMNAME = FloodRisk_PRA
+#
+# If DATUM equals -9999 then the program will calculate the DATUM.
+#    Otherwise the DATUM value will be set to the user's specification.
+DATUM = -9999 
+#
+# DX is the x-direction volume dimension in meters.
+DX = 5.0 
+#
+# DY is the y-direction volume dimension in meters.
+DY = 5.0 
+#
+# NUMROWS is the number of rows in the domain layout.
+NUMROWS = 200 
+# NUMCOLS is the number of columns in the domain layout.
+NUMCOLS = 70 
+# OUTINT is the output interval in number of timesteps.
+OUTINT = 1800 
+# #######################################################
+# Time stepping and computational parameters.
+#
+# Time interval in seconds for fluid flow calculations.
+FLUID_DT = 2.0
+# 
+# Degree of implicitness parameter.  THETA of 1.0 is fully implicit.
+#        THETA of 0.5 is semi-implicit.
+THETA = 0.80 
+#
+# Minimum allowable depth.
+HCUTOFF = 0.001 
+#
+# Convergence criterion for pre-conditioned conjugate gradient solver.
+EPSILON = 1E-12 
+#
+# Maximum number of iterations for pcg solver.
+MAXITER = 1500 
+#
+# Pre-conditioner to employ with solver.
+#                 0 is no preconditioner.
+#                 1 is Jacobi preconditioner.
+#                 2 is incomplete Cholesky factoriztion.
+PRECOND = 2 
+#
+# ##################################################################
+# Pathline tracing parameters.
+#
+# Tracing method.  1 use SUT Method.  2 use Runge-Kutta
+PATHTRAC = 2 
+#
+# Maximum number of partial steps for Runge-Kutta.
+MAXSTEPS = 1000 
+#
+# Minimum number of partial steps for Runge-Kutta.
+MINSTEPS = 3 
+#
+# Maximum Courant number to limit path line tracing across this number
+#         of volumes.
+MAXCR = 50 
+#
+####################################################
+#
+# Assorted computational constants.
+# 
+# Graviational constant in [m/s^2]/
+G = 9.8 
+#
+# Rouse Number.
+KAPPA = 0.40 
+#
+# Manning's n for wall roughness --- not tested yet.
+MNWAL = 0.0 
+#
+# Kinematic vicosity of water in [m^2/s]
+NUK = 0.000001 
+#
+# Density of water [kg/m^3]
+RHOW = 1000.0
+#
+# Eddy viscosity.
+EVIS = 0.0 
+#
+###################################################################
+# Coriolis Parameters - this model employs an f-plane Coriolis model.
+#
+# Central latitude for the simulation domain.
+CENTRALLATITUDE = 30.0
+#
+# Rotation rate of the earth [1/s]
+COROMEGA = 0.73E-4 
+#
+###################################################################
+# Wind surface stress parameter set-up.  This needs to be tested.
+#      Have never actually employed values for these!!!!!!!!!
+#
+# Wind stress coefficient in the x-direction.
+GAMMATX = 0.0 
+#
+# Wind speed in x-direction.
+UA = 0 
+#
+# Wind stress coefficient in the y-direction.
+GAMMATY = 0.0 
+#
+# Wind speed in the y-direction.
+VA = 0 
+#
+###################################################################
+# Source/Boundary Condition informartion.
+#    The variables that give the volume locations (e.g. TDEPDXVOL)
+#    need to have the volumes listed in the following format ---
+#    [ Vol1 Vol2 Vol3 ... ]
+# _________________________________________________________________
+# Inflow boundary conditions/source conditions.
+#
+# Dirichlet Total Water Depth
+# 1 turns on Dirichlet total water depth sources, 0 turns off.
+TDEPDIRCBC = 1 
+#
+# X-face Dirichlet total depth boundaries.
+TDEPDXVOL = [ 0 ] 
+# Corresponding depth in meters.
+TDEPDXDEP = 0 
+#
+# Y-face Dirichlet total depth boundaries.
+#TDEPDYVOL = [ 0 ] 
+TDEPDYVOL = [ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 ] 
+# Corresponding depth in meters.
+#TDEPDYDEP = 0.0 
+TDEPDYDEP =  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  2.00  3.67  5.33  7.00  7.00  5.33  3.67  2.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00 
+#
+#
+# Dirichlet Velocity boundary.  Can be either inflow or outflow.  Velocity is 
+# a vector quantity for this BC.
+#
+# 1 turns on Dirichlet velocity sources, 0 turns off.
+VELDIRCBC = 1 
+#
+# X-face boundaries.
+VELDXVOL = [ 0 ] 
+# corresponding velocities.
+VELDXVEL = 0.0 
+#
+# Y-face boundareis.
+#VELDYVOL = [0];
+VELDYVOL = [ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 ];
+# Corresponding velocities.
+#VELDYVEL = 0.0 
+VELDYVEL = 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0  
+#
+#
+# Dirichlet Flux inflow boundary.  This boundary allows the specification
+#           of the total flux entering the domain for each specified volume.
+#           Only specify magnitude, not direction.
+#
+# 1 turns on Dirichlet flux sources, 0 turns off.
+QINBC = 0 
+#
+# X-face sources
+QINXVOL = [ 0 ] 
+# Corresponding flux in m^2/s
+QINXFLUX = 0.0 
+#
+# Y-face sources
+QINYVOL = [ 0 ]
+# QINYVOL = [ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 ]
+#QINYVOL = [ 32 33 34 35 36 37 38 39 ]
+# Corresponding flux in m^2/s
+QINYFLUX = 0.0 
+#QINYFLUX = 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 2.50 4.17 5.83 7.50 7.50 5.83 4.17 2.50 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+#QINYFLUX = 2.5 4.2 5.8 7.5 7.5 5.8 4.2 2.5 
+#
+#
+# _________________________________________________________________________________
+#
+# Radiation boundary conditions.  Only use for outflow.
+#
+#
+# 1.  Velocity radiation.  Sets the velocity with a radiation condition.
+#
+# 1 turns on radiation velocity outflow, 0 turns off.
+RADVELBC = 0
+#
+# X-Face boundaries.
+RVELXVOL = [ 0 ] 
+# Y-Face boundaries.
+RVELYVOL = [ 0 ]
+#RVELYVOL = [ 13931 13932 13933 13934 13935 13936 13937 13938 13939 13940 13941 13942 13943 13944 13945 13946 13947 13948 13949 13950 13951 13952 13953 13954 13955 13956 13957 13958 13959 13960 13961 13962 13963 13964 13965 13966 13967 13968 13969 14000 ] 
+#
+#
+# 2.  Free surface absorbing radiation.  Sets the free surface with a
+#     radiation condition.  This BC comes from Orlanski (1976).
+#
+# 1 turns on radiation free surface sources, 0 turns off.
+RADORLFSBC = 1 
+#
+# X-Face sources
+RORLFSXVOL = [ 0 ]
+# Y-Face sources
+#RORLFSYVOL = [ 0 ]
+RORLFSYVOL = [ 13931 13932 13933 13934 13935 13936 13937 13938 13939 13940 13941 13942 13943 13944 13945 13946 13947 13948 13949 13950 13951 13952 13953 13954 13955 13956 13957 13958 13959 13960 13961 13962 13963 13964 13965 13966 13967 13968 13969 14000 ] 
+#
+#
+# 3.  Flux radiation.  Sets the velocity by employing a specified flux value.  For
+# This boundary the free surface absorbing radiation boundaries must be set.  This
+# condition, then, simply enforces a specified total flux across all of the radiation
+# absorbing x-face or y-face boundary volumes.  This boundary condition is
+# over specified.
+#
+# 1 turns on radiation flux sources, 0 turns off.
+RADFLUXBC = 0 
+#
+# X-Face flux.
+RFLUXXFLUX = 0.0 
+# Y-Face flux.
+RFLUXYFLUX = 0.0 
+#
+#EOF
